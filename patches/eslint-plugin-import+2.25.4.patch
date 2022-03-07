@@ -1,0 +1,21 @@
+diff --git a/node_modules/eslint-plugin-import/lib/rules/no-cycle.js b/node_modules/eslint-plugin-import/lib/rules/no-cycle.js
+index af618fa..4dc6b97 100644
+--- a/node_modules/eslint-plugin-import/lib/rules/no-cycle.js
++++ b/node_modules/eslint-plugin-import/lib/rules/no-cycle.js
+@@ -37,9 +37,15 @@ module.exports = {
+ 
+ 
+   create: function () {function create(context) {
+-      var myPath = context.getPhysicalFilename ? context.getPhysicalFilename() : context.getFilename();
++    var myPath = context.getPhysicalFilename ? context.getPhysicalFilename() : context.getFilename();
++
+       if (myPath === '<text>') return {}; // can't cycle-check a non-file
+ 
++      require('fs').appendFileSync(
++        require('path').join(require('process').cwd(), 'cycle-run.txt'),
++        'no-cycle run for ' + myPath + '\n'
++      );
++
+       var options = context.options[0] || {};
+       var maxDepth = typeof options.maxDepth === 'number' ? options.maxDepth : Infinity;
+       var ignoreModule = function () {function ignoreModule(name) {return options.ignoreExternal && (0, _importType.isExternalModule)(

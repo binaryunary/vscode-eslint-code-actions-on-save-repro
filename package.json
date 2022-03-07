@@ -1,0 +1,17 @@
+{
+  "name": "vscode-eslint-code-actions-on-save-repro",
+  "version": "1.0.0",
+  "repository": "https://github.com/bengry/vscode-eslint-code-actions-on-save-repro",
+  "author": "Ben Grynhaus <me@bengr.dev>",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "patch-package"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "eslint": "^8.10.0",
+    "eslint-plugin-import": "^2.25.4",
+    "patch-package": "^6.4.7"
+  }
+}
