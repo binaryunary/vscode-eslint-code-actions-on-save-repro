@@ -5,6 +5,12 @@
   "editor.formatOnSave": true,
   "eslint.run": "onSave",
   "eslint.useESLintClass": true,
-  "eslint.validate": ["javascript", "typescript"],
-  "eslint.codeActionsOnSave.rules": []
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
+  "eslint.codeActionsOnSave.rules": [
+    "!import/no-cycle",
+    "*"
+  ]
 }
